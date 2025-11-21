@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Animacja po kliknięciu</title>
+
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        img {
+            width: 250px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        /* ukryty napis */
+        .message {
+            margin-top: 20px;
+            font-size: 32px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        /* klasa aktywująca animację */
+        .show {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <img id="foto" src="pedal.jfif" alt="obrazek">
+
+    <div id="msg" class="message">huj ci w dupe!</div>
+
+    <script>
+        const img = document.getElementById("foto");
+        const msg = document.getElementById("msg");
+
+        img.addEventListener("click", () => {
+            msg.classList.toggle("show");
+        });
+    </script>
+
+</body>
+</html>
